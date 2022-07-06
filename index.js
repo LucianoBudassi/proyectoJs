@@ -5,40 +5,43 @@ let titulo = "Almacen de Bebidas";
 let totalCombos = 5;
 let totalCompra = 0;
 
-let precioCombo1 = 1050;
-let precioCombo2 = 2900;
-let precioCombo3 = 950;
-let precioCombo4 = 1500;
-let precioCombo5 = 2500;
 
 class Producto{
-        constructor(id, combo , ){
+        constructor(id, combo, precio ){
                 this.id = id;
                 this.combo = combo;
+                this.precio = precio;
         }
 }
 
 const combosProductos = [];
-combosProductos.push(new Producto(1, "Fernet + CocaCola"));
-combosProductos.push(new Producto(2, "Absolut + Red Bull"));
-combosProductos.push(new Producto(3, "Campari + Citric"));
-combosProductos.push(new Producto(4, "Alamos + Otro Loco Mas"));
-combosProductos.push(new Producto(5, "Herederos + Scheweppes"));
+combosProductos.push(new Producto(1, "Fernet + CocaCola", 1050));
+combosProductos.push(new Producto(2, "Absolut + Red Bull", 2900));
+combosProductos.push(new Producto(3, "Campari + Citric", 950));
+combosProductos.push(new Producto(4, "Alamos + Otro Loco Mas", 1500));
+combosProductos.push(new Producto(5, "Herederos + Scheweppes", 2500));
+
+for (let item in combosProductos){
+        console.log(item);
+           }
+
 
 let nombre = "";
 
 const catalogo = () => {
+        
+      
         let mensaje = titulo;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + combosProductos[1] + "$" + precioCombo1;
+        mensaje = mensaje + `${combosProductos[1]}`;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + combosProductos[2] + "$" + precioCombo2;
+        mensaje = mensaje + `${combosProductos[2]}`;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + combosProductos[3] + "$" + precioCombo3;
+        mensaje = mensaje + `${combosProductos[3]}`;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + combosProductos[4] + "$" + precioCombo4;
+        mensaje = mensaje + `${combosProductos[4]}`;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + combosProductos[5] + "$" + precioCombo5;
+        mensaje = mensaje + `${combosProductos[5]}`;
         mensaje = mensaje + "\r \n";
     
         return (mensaje);
