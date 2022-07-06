@@ -21,9 +21,6 @@ combosProductos.push(new Producto(3, "Campari + Citric", 950));
 combosProductos.push(new Producto(4, "Alamos + Otro Loco Mas", 1500));
 combosProductos.push(new Producto(5, "Herederos + Scheweppes", 2500));
 
-for (let item in combosProductos){
-        console.log(item);
-           }
 
 
 let nombre = "";
@@ -33,43 +30,44 @@ const catalogo = () => {
       
         let mensaje = titulo;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[1]}`;
+        mensaje = mensaje + `${combosProductos[0].id}  ${combosProductos[0].combo} $ ${combosProductos[0].precio} `;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[2]}`;
+        mensaje = mensaje + `${combosProductos[1].id}  ${combosProductos[1].combo} $ ${combosProductos[1].precio} `;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[3]}`;
+        mensaje = mensaje + `${combosProductos[2].id}  ${combosProductos[2].combo} $ ${combosProductos[2].precio} `;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[4]}`;
+        mensaje = mensaje + `${combosProductos[3].id}  ${combosProductos[3].combo} $ ${combosProductos[3].precio} `;
         mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[5]}`;
+        mensaje = mensaje + `${combosProductos[4].id}  ${combosProductos[4].combo} $ ${combosProductos[4].precio} `;
         mensaje = mensaje + "\r \n";
     
         return (mensaje);
+        
     }
-
+    
     const carroCompra = (producto, cantidad) => {
 
         let mensaje = " ";
 
     switch (producto) {
         case "1" : mensaje = combosProductos[1];
-                totalCompra = totalCompra + parseInt (combosProductos[1] * cantidad); 
+                totalCompra = totalCompra + parseInt (combosProductos[0].precio * cantidad); 
                 break;
         
         case "2" : mensaje = combosProductos[2];
-                totalCompra = totalCompra + parseInt (combosProductos[2] * cantidad); 
+                totalCompra = totalCompra + parseInt (combosProductos[1].precio * cantidad); 
                 break;
         
         case "3" : mensaje = combosProductos[3];
-                totalCompra = totalCompra + parseInt (combosProductos[3] * cantidad); 
+                totalCompra = totalCompra + parseInt (combosProductos[2].precio * cantidad); 
                 break;
         
         case "4" : mensaje = combosProductos[4];
-                totalCompra = totalCompra + parseInt (combosProductos[4] * cantidad); 
+                totalCompra = totalCompra + parseInt (combosProductos[3].precio * cantidad); 
                 break;
         
         case "5" : mensaje = combosProductos[5];
-                totalCompra = totalCompra + parseInt (combosProductos[5] * cantidad); 
+                totalCompra = totalCompra + parseInt (combosProductos[4].precio * cantidad); 
                 break;
 
         }
@@ -150,6 +148,8 @@ let respuesta = 'SI';
 respuesta = prompt(`Hola ${nombre} desea acceder a nuestro catalogo de compras? \r \n SI \r \n NO \r \n SALIR \r \n `);
 
 while (respuesta === 'SI') {
+       
+        
     let producto = prompt(catalogo());
     let cantidad = prompt(`Seleccion la cantidad ${nombre}`);
     
