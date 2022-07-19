@@ -66,116 +66,22 @@ const setCarrito = objeto => {
         }
 
         carrito[producto.id] = {... producto}
-        console.log(carrito);
+        pintarCarrito()
 
 }
 
 const pintarCarrito = () => {
         console.log(carrito);
+        Object.values(carrito).forEach(producto => {
+                template.Carrito.querySelector('th').textContent = producto.id
+                template.Carrito.querySelectorAll('td')[0].textContent = producto.title
+                template.Carrito.querySelectorAll('td')[1].textContent = producto.cantidad
+                template.Carrito.querySelector('.btn-info').dataset.id = producto.id
+                template.Carrito.querySelector('.btn-danger').dataset.id = producto.id
+                template.Carrito.querySelector('span').textContent = producto.cantidad * producto.precio
+                const clone = teompleteCarrito.cloneNode(true)
+                fragment.appendChild(clone)
+        })
+        items.appendChild(fragment);
 }
-
-
-/* 
-let titulo = "Almacen de Bebidas";
-let totalCombos = 5;
-let totalCompra = 0;
-
-
-class Producto{
-        constructor(id, combo, precio ){
-                this.id = id;
-                this.combo = combo;
-                this.precio = precio;
-        }
-}
-
-const combosProductos = [];
-combosProductos.push(new Producto(1, "Fernet + CocaCola", 1050));
-combosProductos.push(new Producto(2, "Absolut + Red Bull", 2900));
-combosProductos.push(new Producto(3, "Campari + Citric", 950));
-combosProductos.push(new Producto(4, "Alamos + Otro Loco Mas", 1500));
-combosProductos.push(new Producto(5, "Herederos + Scheweppes", 2500));
-
-
-
-let nombre = "";
-
-const catalogo = () => {
-        
-      
-        let mensaje = titulo;
-        mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[0].id}  ${combosProductos[0].combo} $ ${combosProductos[0].precio} `;
-        mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[1].id}  ${combosProductos[1].combo} $ ${combosProductos[1].precio} `;
-        mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[2].id}  ${combosProductos[2].combo} $ ${combosProductos[2].precio} `;
-        mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[3].id}  ${combosProductos[3].combo} $ ${combosProductos[3].precio} `;
-        mensaje = mensaje + "\r \n";
-        mensaje = mensaje + `${combosProductos[4].id}  ${combosProductos[4].combo} $ ${combosProductos[4].precio} `;
-        mensaje = mensaje + "\r \n";
-    
-        return (mensaje);
-        
-    }
-    
-    const carroCompra = (producto, cantidad) => {
-
-        let mensaje = " ";
-
-    switch (producto) {
-        case "1" : mensaje = combosProductos[1];
-                totalCompra = totalCompra + parseInt (combosProductos[0].precio * cantidad); 
-                break;
-        
-        case "2" : mensaje = combosProductos[2];
-                totalCompra = totalCompra + parseInt (combosProductos[1].precio * cantidad); 
-                break;
-        
-        case "3" : mensaje = combosProductos[3];
-                totalCompra = totalCompra + parseInt (combosProductos[2].precio * cantidad); 
-                break;
-        
-        case "4" : mensaje = combosProductos[4];
-                totalCompra = totalCompra + parseInt (combosProductos[3].precio * cantidad); 
-                break;
-        
-        case "5" : mensaje = combosProductos[5];
-                totalCompra = totalCompra + parseInt (combosProductos[4].precio * cantidad); 
-                break;
-
-        }
-}
-
-nombre = prompt("Ingrese su nombre"); 
-let respuesta = 'SI';
-
-respuesta = prompt(`Hola ${nombre} desea acceder a nuestro catalogo de compras? \r \n SI \r \n NO \r \n SALIR \r \n `);
-
-while (respuesta === 'SI') {
-       
-        
-    let producto = prompt(catalogo());
-    let cantidad = prompt(`Seleccion la cantidad ${nombre}`);
-    
-    carroCompra(producto, cantidad);
-    alert("Total de tu compra" + " " + parseInt(totalCompra));
-
-    respuesta = prompt(`${nombre} Deseas seguir comprando?`);
-    if (respuesta === 'NO' && (totalCompra = 0)) {
-        alert('No realizaste ninguna compra');
-      }
-    }
-    
-    alert(
-      'Gracias ' +
-        nombre +
-        ' \r\nEl total de tu compra es $' +
-        parseInt(totalCompra)
-    );
-
- */
-
-
 
