@@ -7,7 +7,7 @@ const footer = document.getElementById('footer');
 const templateCard = document.getElementById('template-card').content;
 const fragment = document.createDocumentFragment();
 const templateFooter = document.getElementById('template-footer').content;
-const teompleteCarrito = document.getElementById('template-carrito').content
+const templateCarrito = document.getElementById('template-carrito').content
 let carrito = {}
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,13 +73,13 @@ const setCarrito = objeto => {
 const pintarCarrito = () => {
         console.log(carrito);
         Object.values(carrito).forEach(producto => {
-                template.Carrito.querySelector('th').textContent = producto.id
-                template.Carrito.querySelectorAll('td')[0].textContent = producto.title
-                template.Carrito.querySelectorAll('td')[1].textContent = producto.cantidad
-                template.Carrito.querySelector('.btn-info').dataset.id = producto.id
-                template.Carrito.querySelector('.btn-danger').dataset.id = producto.id
-                template.Carrito.querySelector('span').textContent = producto.cantidad * producto.precio
-                const clone = teompleteCarrito.cloneNode(true)
+                templateCarrito.querySelector('th').textContent = producto.id
+                templateCarrito.querySelectorAll('td')[0].textContent = producto.title
+                templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+                templateCarrito.querySelector('.btn-info').dataset.id = producto.id
+                templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+                templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
+                const clone = templateCarrito.cloneNode(true)
                 fragment.appendChild(clone)
         })
         items.appendChild(fragment);
