@@ -32,7 +32,7 @@ const pintarCards = data =>{
         data.forEach(producto => {
                 templateCard.querySelector('h5').textContent = producto.title
                 templateCard.querySelector('p').textContent = producto.precio
-                templateCard.querySelector('img').setAttribute("src",producto.thumbnailUrl)
+                templateCard.querySelector('img').setAttribute("src",producto.imagen)
                 templateCard.querySelector('.btn-dark').dataset.id= producto.id
 
 
@@ -71,7 +71,8 @@ const setCarrito = objeto => {
 }
 
 const pintarCarrito = () => {
-        console.log(carrito);
+        /*  console.log(carrito);*/
+        items.innerHTML = '';
         Object.values(carrito).forEach(producto => {
                 templateCarrito.querySelector('th').textContent = producto.id
                 templateCarrito.querySelectorAll('td')[0].textContent = producto.title
@@ -83,5 +84,15 @@ const pintarCarrito = () => {
                 fragment.appendChild(clone)
         })
         items.appendChild(fragment);
+
+        pintarFooter();
 }
 
+const pintarFooter = () => {
+      footer.innerHTML = '';
+      if(Object.keys(carrito).length === 0 ){
+        footer.innerHTML = `
+        <th scope="row" colspan="5">Carrito vacío</th>
+        `
+      }   
+}
