@@ -1,37 +1,37 @@
 
  [
     {
-      "precio": "$1200",
+      "precio": "1200",
       "id": 1,
       "title": "Fernet 750cc",
       "imagen": "./image/branca.jpg"
     },
     {
-      "precio": "$2400",
+      "precio": "2400",
       "id": 2,
       "title": "GIN 'Herederos'",
       "imagen": "./image/herederos.jpg"
     },
     {
-      "precio": "$260",
+      "precio": "260",
       "id": 3,
       "title": "Cerveza Heiniken",
       "imagen": "./image/heiniken.jpg"
     },
     {
-      "precio": "$1200",
+      "precio": "1200",
       "id": 4,
       "title": "Alamos",
       "imagen": "./image/alamos-malbec.jpg"
     },
     {
-      "precio": "$2300",
+      "precio": "2300",
       "id": 5,
       "title": "Absolut",
       "imagen": "./image/absolut.jpg"
     },
     {
-      "precio": "$900",
+      "precio": "900",
       "id": 6,
       "title": "Campari",
       "imagen": "./image/Campari.jpg"

@@ -94,5 +94,48 @@ const pintarFooter = () => {
         footer.innerHTML = `
         <th scope="row" colspan="5">Carrito vacío</th>
         `
+        return
       }   
+
+      const nCantidad = Object.values(carrito).reduce((acc, {cantidad}) => acc + cantidad,0 )
+      const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio,0)
+
+      templateFooter.querySelectorAll('td')[0].textContent = nCantidad
+      templateFooter.querySelector('span').textContent = nPrecio
+
+      const clone = templateFooter.cloneNode(true)
+      fragment.appendChild(clone)
+      footer.appendChild(fragment)
+
+      const btnVaciar = document.getElementById('vaciar-carrito')
+      btnVaciar.addEventListener('click', () => {
+        carrito = {}
+        pintarCarrito();
+      
+        Swal.fire({
+                title: 'Estas seguro?',
+                text: "No podras revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, borrar!',
+                cancelButtonText: 'Cancelar'
+                
+                }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Borrado!',
+                    'Tu carrito ha sido elimidado, vuelve a seleccionar.',
+                    'success'
+                  ) 
+                } else {
+                     return   
+                }
+              })
+       
+        })
+
 }
+
+
